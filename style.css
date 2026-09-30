@@ -373,3 +373,25 @@ h3{font-weight:700}
 .logo-follow.on{opacity:.95}
 @media (hover:none),(pointer:coarse){.logo-follow{display:none}}
 @media (prefers-reduced-motion:reduce){.logo-follow,.drop{display:none}.pulse{animation:none}}
+
+/* ===== Sprachband: Nous parlons francais ===== */
+@font-face{font-family:"Fraunces";font-weight:600;font-style:italic;font-display:swap;src:url("assets/fonts/fraunces-latin-600-italic.woff2") format("woff2")}
+.lang-band{background:linear-gradient(100deg,#dcecf9 0%,#f4f8fc 55%,#fff 100%);border-bottom:1px solid var(--line);padding:clamp(1.6rem,4vw,2.6rem) 0}
+.lang-inner{display:flex;align-items:center;gap:1rem 2rem;flex-wrap:wrap}
+.lang-chips{display:flex;gap:.4rem}
+.chip{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;font-family:var(--display);font-weight:800;font-size:.95rem;color:#fff}
+.chip-de{background:var(--navy)}
+.chip-fr{background:var(--accent);margin-left:-14px;box-shadow:0 0 0 3px #fff}
+.lang-fr{margin:0;font-family:"Fraunces",Georgia,"Times New Roman",serif;font-style:italic;font-weight:600;font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;color:var(--navy);letter-spacing:-.01em}
+.lang-fr span{color:var(--accent)}
+.lang-de{margin:0;font-weight:600;color:var(--ink);flex:1 1 240px}
+.lang-de span{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:600;color:var(--muted)}
+.fr-note{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:600;color:var(--blue)}
+.lang-band .btn{margin-left:auto}
+@media (max-width:860px){.lang-band .btn{margin-left:0}}
+
+/* ===== Oeffnungszeiten im Kontakt ===== */
+.contact-list .ci{font-weight:700;font-size:1.1rem;font-family:var(--display);color:var(--blue)}
+.contact-list .cn{color:var(--muted);font-size:.9rem;margin-top:.1rem}
+
+.person strong{font-family:var(--font);font-weight:700}

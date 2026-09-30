@@ -16,7 +16,7 @@
 <link rel="preload" as="image" href="assets/hero-bad.jpg" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/bricolage-grotesque-latin-800-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/figtree-latin-400-normal.woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=8">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -25,6 +25,13 @@
   "url": "https://ainohaustechnik.ch",
   "email": "info@ainohaustechnik.ch",
   "telephone": "+41794076781",
+  "knowsLanguage": ["de", "fr"],
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "07:30",
+    "closes": "17:00"
+  }],
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Holenackerstrasse 27",
@@ -79,6 +86,15 @@
       </div>
   </section>
 
+  <section class="lang-band" aria-label="Sprachen / Langues">
+    <div class="wrap lang-inner">
+      <div class="lang-chips" aria-hidden="true"><span class="chip chip-de">DE</span><span class="chip chip-fr">FR</span></div>
+      <p class="lang-fr" lang="fr">Nous parlons <span>français.</span></p>
+      <p class="lang-de">Wir sprechen Deutsch und Französisch.<br><span lang="fr">Conseil, devis et travaux en deux langues.</span></p>
+      <a class="btn btn-accent" href="#kontakt">Kontakt / Contact</a>
+    </div>
+  </section>
+
   <section class="section" id="leistungen">
     <div class="wrap">
       <div class="section-head" data-reveal>
@@ -92,7 +108,7 @@
             <svg viewBox="0 0 24 24"><path d="M14.500 6.500a4 4 0 0 0-5 5L3 18l3 3 6.500-6.500a4 4 0 0 0 5-5l-2.500 2.500-2.500-.5-.5-2.500Z"/></svg>
           </div>
           <h3>Reparaturen, Service &amp; Notfall</h3>
-          <p>Ein tropfender Wasserhahn, eine verstopfte Leitung, ein defekter Boiler: Wir beheben Störungen schnell, finden die Ursache und sind auch bei dringenden Fällen für Sie da.</p>
+          <p>Ein tropfender Wasserhahn, eine verstopfte Leitung, ein defekter Boiler: Wir beheben Störungen schnell, finden die Ursache und sind bei dringenden Fällen nach Absprache für Sie da.</p>
         </article>
         <article class="card" data-reveal>
           <div class="icon" aria-hidden="true">
@@ -193,7 +209,7 @@
         <p class="eyebrow">Über uns</p>
         <h2>Ein Berner Betrieb mit Herz fürs Handwerk</h2>
         <p>Hinter AINO Haustechnik steht <strong>Qendrim Ismani</strong>. Er war zuvor Mitinhaber der Wasserdichter GmbH und bringt viel Erfahrung aus der Sanitärbranche mit. Heute führt er die AINO Haustechnik GmbH: persönlich, nah bei den Kunden und mit dem Anspruch, dass man sich bei uns gut aufgehoben fühlt.</p>
-        <p><strong>Zweisprachig für Sie da:</strong> Qendrim Ismani spricht Deutsch und sehr gut Französisch. Sie können sich bei uns auf Deutsch oder auf Französisch beraten lassen. <em lang="fr">Nous vous conseillons volontiers en français.</em></p>
+        <p><strong>Zweisprachig für Sie da:</strong> Wir sprechen Deutsch und Französisch. Sie können sich bei uns auf Deutsch oder auf Französisch beraten lassen. <em lang="fr" class="fr-note">Nous vous conseillons volontiers en français.</em></p>
         <p>Für uns ist jedes Zuhause ein Ort, an dem Menschen leben, Kinder aufwachsen und Familien zusammenkommen. Deshalb arbeiten wir sauber, erklären verständlich und halten, was wir versprechen. Wir arbeiten in Bern und Umgebung für Privatkunden, Verwaltungen sowie Gewerbe- und Industriebetriebe.</p>
         <ul class="checks">
           <li>Persönliche Beratung und klare Offerten</li>
@@ -217,12 +233,25 @@
     </div>
   </section>
 
+  <!--
+    TEAM (deaktiviert, Platzhalter fuer spaeter)
+    Erst einschalten, wenn echte Mitarbeitende mit Foto und Einverstaendnis vorliegen:
+    <section class="section" id="team">
+      <div class="wrap">
+        <div class="section-head"><p class="eyebrow">Team</p><h2>Unsere Leute</h2></div>
+        <div class="cards">
+          <article class="card"><img src="assets/team-1.jpg" alt="Name, Funktion" width="400" height="400" loading="lazy"><h3>Name</h3><p>Funktion · Sprachen</p></article>
+        </div>
+      </div>
+    </section>
+  -->
+
   <section class="section section-tint" id="kontakt">
     <div class="wrap contact">
       <div>
         <p class="eyebrow">Kontakt</p>
         <h2>Wie können wir helfen?</h2>
-        <p class="muted">Schreiben Sie uns oder rufen Sie an. Wir melden uns so schnell wie möglich. Bei dringenden Fällen am besten direkt telefonisch.<br><em lang="fr">Vous pouvez aussi nous écrire ou nous appeler en français.</em></p>
+        <p class="muted">Schreiben Sie uns oder rufen Sie an. Wir melden uns so schnell wie möglich. Bei dringenden Fällen am besten direkt telefonisch, Notfälle nach Absprache.<br><em lang="fr">Vous pouvez aussi nous écrire ou nous appeler en français.</em></p>
         <div class="person" data-reveal>
           <img src="assets/qendrim.jpg" alt="Qendrim Ismani, Inhaber AINO Haustechnik" width="395" height="540" loading="lazy">
           <div><strong>Qendrim Ismani</strong><span>Inhaber und Ihr Ansprechpartner</span></div>
@@ -230,6 +259,7 @@
         <ul class="contact-list">
           <li><span>Telefon</span><a href="tel:+41794076781">079 407 67 81</a></li>
           <li><span>E-Mail</span><a href="mailto:info@ainohaustechnik.ch">info@ainohaustechnik.ch</a></li>
+          <li><span>Öffnungszeiten</span><b class="ci">Mo bis Fr, 07:30 bis 17:00 Uhr</b><small class="cn">Notfall nach Absprache</small></li>
           <li><span>Adresse</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Holenackerstrasse+27+3027+Bern" target="_blank" rel="noopener">Holenackerstrasse 27, 3027 Bern</a></li>
         </ul>
       </div>
