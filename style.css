@@ -240,3 +240,5 @@ p{margin:0 0 1em}
 @media (prefers-reduced-motion:reduce){.hero-photo{animation:none}}
 .person img{width:120px;height:120px}
 .about-card dl{border-top:0;padding-top:0}
+
+.gallery .photo-frame img{aspect-ratio:4/3;object-fit:cover}
