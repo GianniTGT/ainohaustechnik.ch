@@ -139,8 +139,7 @@ $sent = mail(
     TO_ADDRESS,
     '=?UTF-8?B?' . base64_encode($subject) . '?=',
     $body,
-    implode("\r\n", $headers),
-    '-f' . FROM_ADDRESS
+    implode("\r\n", $headers)
 );
 
 if (!$sent) {
