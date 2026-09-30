@@ -14,7 +14,9 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=3">
 <script>document.documentElement.classList.add("js")</script>
 <link rel="preload" as="image" href="assets/hero-bad.jpg" fetchpriority="high">
-<link rel="stylesheet" href="style.css?v=6">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/bricolage-grotesque-latin-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/figtree-latin-400-normal.woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=7">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -41,11 +43,12 @@
   <div class="wrap header-inner">
     <a class="brand" href="#top" aria-label="AINO Haustechnik GmbH – Startseite">
       <img src="assets/logo-symbol.svg?v=3" alt="" width="38" height="40">
-      <span><strong>AINO</strong> Haustechnik</span>
+      <span class="brand-text"><strong>AINO</strong> HAUSTECHNIK GMBH</span>
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
     <nav id="nav" class="nav" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
+      <a href="#referenzen">Referenzen</a>
       <a href="#ablauf">Ablauf</a>
       <a href="#ueber-uns">Über uns</a>
       <a href="#kontakt">Kontakt</a>
@@ -149,22 +152,22 @@
     </div>
   </section>
 
-  <section class="section" id="inspiration">
+  <section class="section" id="referenzen">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <p class="eyebrow">Inspiration</p>
-        <h2>Ideen für Ihr Bad</h2>
-        <p class="muted">Schlicht, hell und hochwertig: Holz, grosse Fliesen, bodenebene Duschen. Wir zeigen Ihnen, was in Ihrem Bad möglich ist, vom kleinen Update bis zur Komplettsanierung.</p>
+        <p class="eyebrow">Referenzen</p>
+        <h2>Bäder, die zum Wohnen einladen</h2>
+        <p class="muted">Eine Auswahl aus früheren Projekten von Qendrim Ismani: Holz, Naturstein, grosse Fliesen und saubere Details. Klicken Sie auf ein Bild, um es zu vergrössern.</p>
       </div>
       <div class="gallery">
-        <figure class="photo-frame" data-reveal><img src="assets/bad-grau-holz.jpg" alt="Modernes Bad mit grossen grauen Fliesen und weissem Waschtisch mit Holzplatte" width="1000" height="750" loading="lazy"></figure>
-        <figure class="photo-frame" data-reveal><img src="assets/bad-weiss-holz.jpg" alt="Helles Bad mit Doppelwaschtisch aus Holz und freistehender Badewanne" width="1000" height="750" loading="lazy"></figure>
-        <figure class="photo-frame" data-reveal><img src="assets/bad-dusche-bodeneben.jpg" alt="Bodenebene Dusche mit grossformatigen hellen Fliesen" width="1000" height="750" loading="lazy"></figure>
-        <figure class="photo-frame" data-reveal><img src="assets/bad-grossformat.jpg" alt="Grosszügiges Bad in Grau mit Regendusche und Wandwaschtisch" width="1000" height="750" loading="lazy"></figure>
-        <figure class="photo-frame" data-reveal><img src="assets/bad-weiss-schwarz.jpg" alt="Weisses Bad mit Metrofliesen und schwarzem Duschrahmen" width="1000" height="750" loading="lazy"></figure>
-        <figure class="photo-frame" data-reveal><img src="assets/bad-hell-nische.jpg" alt="Helles Bad mit Duschbereich, Wandnische und indirektem Licht" width="1000" height="750" loading="lazy"></figure>
+        <figure class="photo-frame ref" data-reveal data-lightbox><img src="assets/ref-marmor.jpg" alt="Bad mit Marmor-Optik, Wandspiegel und Doppelwaschtisch" width="1200" height="900" loading="lazy"><figcaption>Marmor-Optik und Wandspiegel</figcaption></figure>
+        <figure class="photo-frame ref" data-reveal data-lightbox><img src="assets/ref-holz-nische.jpg" alt="Bad mit Holzboden, grauen Wandfliesen und Handtuchradiator" width="1200" height="900" loading="lazy"><figcaption>Holzboden, Nische und Handtuchradiator</figcaption></figure>
+        <figure class="photo-frame ref" data-reveal data-lightbox><img src="assets/ref-naturstein.jpg" alt="Bad mit Natursteinwand und freistehender Badewanne" width="1200" height="900" loading="lazy"><figcaption>Natursteinwand mit freistehender Wanne</figcaption></figure>
+        <figure class="photo-frame ref" data-reveal data-lightbox><img src="assets/ref-dusche-fenster.jpg" alt="Dusche mit Glasabtrennung und Fenster" width="1200" height="900" loading="lazy"><figcaption>Dusche mit Glas und Tageslicht</figcaption></figure>
+        <figure class="photo-frame ref" data-reveal data-lightbox><img src="assets/ref-metro.jpg" alt="Bad mit weissen Metro-Fliesen und Bodenmuster" width="1200" height="900" loading="lazy"><figcaption>Metro-Fliesen und Bodenmuster</figcaption></figure>
+        <figure class="photo-frame ref" data-reveal data-lightbox><img src="assets/ref-dusche-gold.jpg" alt="Dusche mit Natursteinfliesen und goldener Armatur" width="1200" height="900" loading="lazy"><figcaption>Natursteinfliesen mit goldener Armatur</figcaption></figure>
       </div>
-      <p class="small muted gallery-note">Symbolbilder zur Inspiration.</p>
+      <p class="small muted gallery-note">Fotos aus früheren Projekten von Qendrim Ismani.</p>
     </div>
   </section>
 
@@ -220,7 +223,7 @@
         <p class="muted">Schreiben Sie uns oder rufen Sie an. Wir melden uns so schnell wie möglich. Bei dringenden Fällen am besten direkt telefonisch.</p>
         <div class="person" data-reveal>
           <img src="assets/qendrim.jpg" alt="Qendrim Ismani, Inhaber AINO Haustechnik" width="395" height="540" loading="lazy">
-          <div><strong>Qendrim Ismani</strong><span>Inhaber und Ihr Ansprechpartner</span><a href="tel:+41794076781">079 407 67 81</a></div>
+          <div><strong>Qendrim Ismani</strong><span>Inhaber und Ihr Ansprechpartner</span></div>
         </div>
         <ul class="contact-list">
           <li><span>Telefon</span><a href="tel:+41794076781">079 407 67 81</a></li>
@@ -260,10 +263,7 @@
         <img src="assets/logo-symbol.svg?v=3" alt="AINO Haustechnik GmbH" width="34" height="36">
         <p><strong>AINO Haustechnik GmbH</strong><br>Holenackerstrasse 27 · 3027 Bern<br>079 407 67 81 · info@ainohaustechnik.ch</p>
       </div>
-      <a class="tiff-credit" href="https://tiff-software-solutions.com" target="_blank" rel="noopener" aria-label="Webdesign und Umsetzung: TIFF Software Solutions">
-        <span class="tiff-label">Webdesign &amp; Umsetzung</span>
-        <span class="tiff-brand"><img src="assets/tiff-logo.svg" alt="" width="34" height="34"><span>Tiff <b>Software Solutions</b></span></span>
-      </a>
+      <a class="tiff-credit" href="https://tiff-software-solutions.com" target="_blank" rel="noopener" aria-label="Webdesign und Umsetzung: TIFF Software Solutions"><span class="tiff-brand"><span class="tiff-label">Webdesign &amp; Umsetzung</span><img src="assets/tiff-logo.svg" alt="" width="18" height="18"><span>Tiff <b>Software Solutions</b></span></span></a>
     </div>
     <div class="footer-bottom">
       <nav aria-label="Rechtliches">
@@ -283,6 +283,7 @@
   <span>Jetzt anrufen</span>
 </a>
 
-<script src="script.js?v=3"></script>
+<div class="logo-follow" aria-hidden="true"><img src="assets/logo-symbol.svg?v=3" alt="" width="20" height="21"></div>
+<script src="script.js?v=7"></script>
 </body>
 </html>
