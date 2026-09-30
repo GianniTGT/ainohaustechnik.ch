@@ -395,3 +395,11 @@ h3{font-weight:700}
 .contact-list .cn{color:var(--muted);font-size:.9rem;margin-top:.1rem}
 
 .person strong{font-family:var(--font);font-weight:700}
+
+/* ===== Kontaktformular: Status, Honeypot ===== */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-status{border-radius:12px;padding:.9rem 1.1rem;font-weight:600;line-height:1.45}
+.form-status.ok{background:#e6f6ec;color:#0e5a2b;border:1px solid #9fd8b4}
+.form-status.err{background:#fdeceb;color:#8d1f12;border:1px solid #f0b2aa}
+.form input:invalid:not(:placeholder-shown):not(:focus),.form textarea:invalid:not(:placeholder-shown):not(:focus){border-color:#d8453a}
+.form button[disabled]{opacity:.7;cursor:progress}

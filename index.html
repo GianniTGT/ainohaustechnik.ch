@@ -16,7 +16,7 @@
 <link rel="preload" as="image" href="assets/hero-bad.jpg" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/bricolage-grotesque-latin-800-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/figtree-latin-400-normal.woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -263,11 +263,13 @@
           <li><span>Adresse</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Holenackerstrasse+27+3027+Bern" target="_blank" rel="noopener">Holenackerstrasse 27, 3027 Bern</a></li>
         </ul>
       </div>
-      <form class="form" id="kontaktform" action="mailto:info@ainohaustechnik.ch" method="post" enctype="text/plain">
-        <label>Name<input name="name" type="text" autocomplete="name" required></label>
+      <form class="form" id="kontaktform" action="kontakt.php" method="post" novalidate>
+        <div class="hp" aria-hidden="true"><label>Webseite<input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+        <input type="hidden" name="ts" value="">
+        <label>Name<input name="name" type="text" autocomplete="name" required maxlength="100"></label>
         <div class="row">
           <label>E-Mail<input name="email" type="email" autocomplete="email" required></label>
-          <label>Telefon<input name="telefon" type="tel" autocomplete="tel"></label>
+          <label>Telefon<input name="telefon" type="tel" autocomplete="tel" maxlength="40"></label>
         </div>
         <label>Anliegen
           <select name="anliegen">
@@ -279,9 +281,10 @@
             <option>Sonstiges</option>
           </select>
         </label>
-        <label>Nachricht<textarea name="nachricht" rows="5" required></textarea></label>
+        <label>Nachricht<textarea name="nachricht" rows="5" required minlength="5" maxlength="5000"></textarea></label>
+        <div class="form-status" id="formstatus" role="status" aria-live="polite" hidden></div>
         <button class="btn btn-accent" type="submit">Anfrage senden</button>
-        <p class="small muted">Beim Absenden öffnet sich Ihr E-Mail-Programm. Es werden keine Daten auf dieser Webseite gespeichert.</p>
+        <p class="small muted">Mit dem Absenden stimmen Sie zu, dass wir Ihre Angaben zur Bearbeitung Ihrer Anfrage erhalten und verwenden. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
       </form>
     </div>
   </section>
@@ -316,6 +319,6 @@
 </a>
 
 <div class="logo-follow" aria-hidden="true"><img src="assets/logo-symbol.svg?v=3" alt="" width="20" height="21"></div>
-<script src="script.js?v=7"></script>
+<script src="script.js?v=9"></script>
 </body>
 </html>

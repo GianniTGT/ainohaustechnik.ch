@@ -92,24 +92,52 @@
     setTimeout(function () { dot.remove(); }, 650);
   });
 
-  // Statisches Formular: baut eine E-Mail im Mailprogramm des Besuchers
+  // Kontaktformular: sendet an kontakt.php, zeigt das Ergebnis direkt auf der Seite
   var form = document.getElementById('kontaktform');
   if (form) {
+    var status = document.getElementById('formstatus');
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var tsField = form.querySelector('input[name="ts"]');
+    if (tsField) tsField.value = String(Date.now());
+
+    function show(ok, msg) {
+      if (!status) return;
+      status.hidden = false;
+      status.className = 'form-status ' + (ok ? 'ok' : 'err');
+      status.textContent = msg;
+      status.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var f = new FormData(form);
-      var body = [
-        'Name: ' + f.get('name'),
-        'E-Mail: ' + f.get('email'),
-        'Telefon: ' + (f.get('telefon') || '-'),
-        'Anliegen: ' + f.get('anliegen'),
-        '',
-        f.get('nachricht')
-      ].join('\n');
-      window.location.href = 'mailto:info@ainohaustechnik.ch?subject=' +
-        encodeURIComponent('Anfrage Webseite: ' + f.get('anliegen')) +
-        '&body=' + encodeURIComponent(body);
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.dataset.label = submitBtn.textContent; submitBtn.textContent = 'Wird gesendet …'; }
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false, message: '' }; }); })
+        .then(function (res) {
+          if (res.ok) {
+            show(true, res.message || 'Vielen Dank! Wir melden uns so schnell wie möglich.');
+            form.reset();
+            if (tsField) tsField.value = String(Date.now());
+          } else {
+            show(false, res.message || 'Das Senden hat nicht geklappt. Bitte rufen Sie uns an: 079 407 67 81.');
+          }
+        })
+        .catch(function () {
+          show(false, 'Keine Verbindung. Bitte versuchen Sie es noch einmal oder rufen Sie uns an: 079 407 67 81.');
+        })
+        .then(function () {
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.label || 'Anfrage senden'; }
+        });
     });
+
+    // Rueckmeldung nach dem Senden ohne JavaScript (Weiterleitung von kontakt.php)
+    var qs = window.location.search;
+    if (/[?&]gesendet=1/.test(qs)) show(true, 'Vielen Dank! Ihre Nachricht ist bei uns angekommen. Wir melden uns so schnell wie möglich.');
+    if (/[?&]fehler=1/.test(qs)) show(false, 'Das Senden hat nicht geklappt. Bitte rufen Sie uns an: 079 407 67 81.');
   }
 })();
 
