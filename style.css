@@ -242,3 +242,63 @@ p{margin:0 0 1em}
 .about-card dl{border-top:0;padding-top:0}
 
 .gallery .photo-frame img{aspect-ratio:4/3;object-fit:cover}
+
+/* ===== Hero mit grossem Bad im Hintergrund ===== */
+.hero.hero-bg{
+  background:
+    linear-gradient(90deg,rgba(10,37,64,.92) 0%,rgba(10,37,64,.78) 45%,rgba(10,37,64,.25) 100%),
+    url("assets/hero-bad.jpg") center/cover no-repeat;
+  min-height:clamp(520px,82vh,760px);display:flex;align-items:center;
+  padding:clamp(3rem,9vw,7rem) 0}
+.hero-single{display:block}
+.hero-single .hero-copy{max-width:640px}
+.hero-single .lead{color:#e3ecf5}
+@media (max-width:860px){
+  .hero.hero-bg{background:linear-gradient(180deg,rgba(10,37,64,.9) 0%,rgba(10,37,64,.78) 100%),url("assets/hero-bad.jpg") 70% center/cover no-repeat;min-height:0}
+}
+
+/* ===== Navigation: alle Punkte gleich gross und gleich gestaltet ===== */
+.header-inner{height:76px}
+.site-header.scrolled .header-inner{height:64px}
+.nav{gap:.6rem}
+.site-header .nav a{display:inline-flex;align-items:center;justify-content:center;height:46px;padding:0 1.3rem;border-radius:999px;background:var(--blue-soft);color:var(--navy);font-size:1.08rem;font-weight:700;text-decoration:none;border:0;box-shadow:none;transition:background .2s,color .2s,transform .15s}
+.site-header .nav a::after{display:none}
+.site-header .nav a:hover{background:var(--navy);color:#fff;transform:translateY(-1px)}
+.site-header .nav a.active{background:var(--navy);color:#fff}
+.site-header .nav a.nav-phone{width:46px;padding:0}
+.nav-phone svg{width:22px;height:22px;fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s}
+.site-header .nav a.nav-phone:hover svg{stroke:#fff}
+@media (max-width:860px){
+  .header-inner{height:68px}
+  .site-header .nav a{height:52px;justify-content:flex-start;border-radius:14px;padding:0 1.1rem;border:0;margin-bottom:.5rem}
+  .site-header .nav a.nav-phone{display:none}
+  .nav{gap:0}
+}
+
+/* ===== Footer: Logo so hoch wie der Text, TIFF-Credit rechts ===== */
+.site-footer .footer-inner{display:block}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem 2rem;flex-wrap:wrap}
+.foot-brand{display:flex;align-items:stretch;gap:1rem}
+.foot-brand img{height:auto;width:auto;aspect-ratio:1;align-self:stretch;background:#fff;border-radius:12px;padding:8px;object-fit:contain}
+.foot-brand p{margin:0;line-height:1.5;font-size:1.05rem}
+.foot-brand p strong{font-size:1.15rem}
+.tiff-credit{display:flex;flex-direction:column;align-items:flex-end;gap:.45rem;margin:0;text-decoration:none}
+.tiff-credit:hover{text-decoration:none}
+.tiff-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:#c9a053}
+.tiff-brand{display:flex;align-items:center;gap:.7rem;background:#16653c;border:1px solid rgba(201,160,83,.55);border-radius:14px;padding:.5rem .95rem .5rem .55rem;color:#fff;font-size:1.05rem;transition:background .2s,transform .2s}
+.tiff-brand img{width:34px;height:34px;border-radius:8px;background:none;padding:0}
+.tiff-brand b{color:#c9a053;font-weight:700}
+.tiff-credit:hover .tiff-brand{background:#0f4b2c;transform:translateY(-2px)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem 1.5rem;margin-top:1.6rem;border-top:1px solid rgba(255,255,255,.12);padding-top:1rem}
+.footer-bottom p{margin:0}
+@media (max-width:860px){
+  .footer-top{flex-direction:column}
+  .tiff-credit{align-items:flex-start}
+}
+
+/* Footer-Logo exakt so hoch wie die drei Textzeilen (3 x 1.6rem) */
+.foot-brand{align-items:flex-start}
+.foot-brand img{width:4.8rem;height:4.8rem;aspect-ratio:auto;align-self:flex-start;padding:.5rem;border-radius:12px;flex:none}
+.foot-brand p{line-height:1.6rem;font-size:1.05rem;white-space:nowrap}
+.foot-brand p strong{font-size:1.1rem}
+@media (max-width:480px){.foot-brand p{white-space:normal}}

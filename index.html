@@ -13,7 +13,8 @@
 <link rel="icon" type="image/png" href="assets/favicon.png?v=3">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=3">
 <script>document.documentElement.classList.add("js")</script>
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="preload" as="image" href="assets/hero-bad.jpg" fetchpriority="high">
+<link rel="stylesheet" href="style.css?v=6">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -48,15 +49,15 @@
       <a href="#ablauf">Ablauf</a>
       <a href="#ueber-uns">Über uns</a>
       <a href="#kontakt">Kontakt</a>
-      <a class="btn btn-accent btn-sm" href="tel:+41794076781">079 407 67 81</a>
+      <a class="nav-phone" href="tel:+41794076781" aria-label="Anrufen: 079 407 67 81" title="079 407 67 81"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></a>
     </nav>
   </div>
 </header>
 
 <main id="inhalt">
 
-  <section class="hero">
-    <div class="wrap hero-grid">
+  <section class="hero hero-bg">
+    <div class="wrap hero-grid hero-single">
       <div class="hero-copy">
         <p class="eyebrow">Haustechnik in Bern · für Ihr Zuhause</p>
         <h1>Damit bei Ihnen zuhause <span class="hl">alles fliesst.</span></h1>
@@ -71,17 +72,7 @@
           <li><strong>Transparent</strong><span>Aufwand &amp; Material klar ausgewiesen</span></li>
         </ul>
       </div>
-      <div class="hero-visual">
-        <div class="orb" aria-hidden="true"></div>
-        <figure class="photo-frame hero-photo">
-          <img src="assets/hero-bad.jpg" alt="Helles Badezimmer mit freistehender Badewanne und Pflanzen" width="1500" height="1001" fetchpriority="high">
-          <figcaption class="photo-badge"><img src="assets/logo-symbol.svg?v=3" alt="" width="30" height="32"><span><strong>AINO Haustechnik</strong><br>Bern und Region</span></figcaption>
-        </figure>
-        <span class="bubble b1" aria-hidden="true"></span>
-        <span class="bubble b2" aria-hidden="true"></span>
-        <span class="bubble b3" aria-hidden="true"></span>
       </div>
-    </div>
   </section>
 
   <section class="section" id="leistungen">
@@ -264,16 +255,23 @@
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <div>
-      <img src="assets/logo-symbol.svg?v=3" alt="" width="34" height="36">
-      <p><strong>AINO Haustechnik GmbH</strong><br>Holenackerstrasse 27 · 3027 Bern<br>079 407 67 81 · info@ainohaustechnik.ch</p>
+    <div class="footer-top">
+      <div class="foot-brand">
+        <img src="assets/logo-symbol.svg?v=3" alt="AINO Haustechnik GmbH" width="34" height="36">
+        <p><strong>AINO Haustechnik GmbH</strong><br>Holenackerstrasse 27 · 3027 Bern<br>079 407 67 81 · info@ainohaustechnik.ch</p>
+      </div>
+      <a class="tiff-credit" href="https://tiff-software-solutions.com" target="_blank" rel="noopener" aria-label="Webdesign und Umsetzung: TIFF Software Solutions">
+        <span class="tiff-label">Webdesign &amp; Umsetzung</span>
+        <span class="tiff-brand"><img src="assets/tiff-logo.svg" alt="" width="34" height="34"><span>Tiff <b>Software Solutions</b></span></span>
+      </a>
     </div>
-    <nav aria-label="Rechtliches">
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-    </nav>
-    <p class="small">© <span id="year">2026</span> AINO Haustechnik GmbH</p>
-    <p class="small credit">Webdesign &amp; Umsetzung: <a href="https://tiff-software-solutions.com" target="_blank" rel="noopener">TIFF Software Solutions</a></p>
+    <div class="footer-bottom">
+      <nav aria-label="Rechtliches">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </nav>
+      <p class="small">© <span id="year">2026</span> AINO Haustechnik GmbH</p>
+    </div>
   </div>
 </footer>
 
