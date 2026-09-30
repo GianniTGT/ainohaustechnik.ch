@@ -65,7 +65,6 @@ p{margin:0 0 1em}
 .hero-facts span{font-size:.85rem;color:#a9bdd2}
 .hero-visual{position:relative;display:grid;place-items:center}
 .orb{position:absolute;width:90%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(58,160,240,.35),transparent 65%);filter:blur(10px)}
-.hero-svg{position:relative;width:min(340px,80%);filter:drop-shadow(0 20px 40px rgba(0,0,0,.35));animation:float 6s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-10px)}}
 
 /* sections */
@@ -97,7 +96,7 @@ p{margin:0 0 1em}
 .checks li{position:relative;padding-left:1.9rem;margin-bottom:.6rem}
 .checks li::before{content:"";position:absolute;left:0;top:.35em;width:1.1rem;height:1.1rem;border-radius:50%;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.500l4 4 8-9'/%3E%3C/svg%3E") center/70% no-repeat}
 .about-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:2rem;text-align:center}
-.about-card img{width:200px;margin:0 auto 1.2rem;mix-blend-mode:multiply}
+.about-card img{width:200px;height:auto;margin:0 auto 1.2rem}
 .about-card dl{text-align:left;margin:0;display:grid;gap:.2rem;border-top:1px solid var(--line);padding-top:1rem}
 .about-card dt{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:.6rem}
 .about-card dd{margin:0;font-weight:600}
@@ -135,8 +134,7 @@ p{margin:0 0 1em}
 /* responsive */
 @media (max-width:860px){
   .hero-grid,.about,.contact{grid-template-columns:1fr}
-  .hero-visual{order:-1;max-height:200px}
-  .hero-svg{width:160px}
+  .hero-visual{order:-1}
   .nav-toggle{display:block}
   .nav{position:absolute;top:68px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:.5rem 20px 1rem;display:none}
   .nav.open{display:flex}
@@ -147,6 +145,67 @@ p{margin:0 0 1em}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .hero-svg{animation:none}
   *{transition:none!important}
+}
+
+/* ===== Logo-Karte im Hero ===== */
+.logo-card{position:relative;background:#fff;border-radius:28px;padding:clamp(1.4rem,3vw,2.2rem);box-shadow:0 30px 60px rgba(0,0,0,.35),0 0 0 8px rgba(255,255,255,.08);animation:float 6s ease-in-out infinite;transition:transform .4s}
+.logo-card:hover{transform:rotate(-2deg) scale(1.03)}
+.logo-card img{width:min(300px,62vw);height:auto}
+.bubble{position:absolute;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);animation:rise 9s ease-in infinite}
+.b1{width:22px;height:22px;left:8%;bottom:10%}
+.b2{width:14px;height:14px;right:10%;bottom:4%;animation-delay:2.5s}
+.b3{width:30px;height:30px;right:2%;top:12%;animation-delay:5s}
+@keyframes rise{0%{transform:translateY(20px) scale(.6);opacity:0}20%{opacity:1}100%{transform:translateY(-140px) scale(1.1);opacity:0}}
+
+/* ===== Header-Zustand, aktiver Link ===== */
+.site-header{transition:box-shadow .3s,background .3s}
+.site-header.scrolled{box-shadow:0 6px 24px rgba(10,37,64,.10)}
+.header-inner{transition:height .3s}
+.site-header.scrolled .header-inner{height:58px}
+.nav a:not(.btn){position:relative}
+.nav a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav a:not(.btn):hover::after,.nav a.active::after{transform:scaleX(1)}
+.nav a.active{color:var(--blue)}
+
+/* ===== Einblend-Animation beim Scrollen ===== */
+.js [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;transition-delay:var(--d,0s)}
+.js [data-reveal].in{opacity:1;transform:none}
+
+/* ===== Klick-Effekte ===== */
+.btn{position:relative;overflow:hidden}
+.btn:active{transform:translateY(0) scale(.97)}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:ripple .6s ease-out forwards;pointer-events:none}
+@keyframes ripple{to{transform:scale(3.5);opacity:0}}
+.card{cursor:default;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--blue),var(--accent));transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.card:hover::before{transform:scaleX(1)}
+.card:hover .icon{transform:rotate(-6deg) scale(1.08)}
+.icon{transition:transform .3s}
+.card:active{transform:translateY(-1px) scale(.99)}
+.steps li{transition:transform .25s,background .25s}
+.steps li:hover{transform:translateY(-4px);background:rgba(255,255,255,.1)}
+.contact-list li{transition:transform .2s,border-color .2s}
+.contact-list li:hover{transform:translateX(4px);border-color:var(--blue)}
+
+/* ===== Zurück nach oben, Anruf-Leiste ===== */
+.to-top{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;border:0;background:var(--navy);color:#fff;box-shadow:var(--shadow);cursor:pointer;display:grid;place-items:center;opacity:0;transform:translateY(10px);transition:.25s;z-index:40}
+.to-top.show{opacity:1;transform:none}
+.to-top svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.to-top:hover{background:var(--blue)}
+.call-bar{display:none}
+.credit a{color:#fff;font-weight:600}
+.site-footer .credit{margin-top:-.6rem}
+
+@media (max-width:860px){
+  .call-bar{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:45;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;align-items:center;justify-content:center;gap:.6rem;padding:.9rem;border-radius:999px;box-shadow:0 10px 28px rgba(242,64,11,.4)}
+  .call-bar svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .to-top{bottom:84px}
+  body{padding-bottom:84px}
+  .hero-visual{max-height:none;min-height:180px}
+  .logo-card img{width:min(240px,60vw)}
+}
+@media (prefers-reduced-motion:reduce){
+  .js [data-reveal]{opacity:1;transform:none}
+  .bubble,.logo-card{animation:none}
 }
